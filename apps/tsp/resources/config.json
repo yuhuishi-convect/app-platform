@@ -1,0 +1,24 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "TSP configuration",
+    "description": "Configuration for the TSP solver",
+    "type": "object",
+    "required": [
+        "num_vehicles",
+        "depot_index"
+    ],
+    "properties": {
+        "num_vehicles": {
+            "description": "Number of vehicles",
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+        },
+        "depot_index": {
+            "description": "Index of the depot",
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+        }
+    }
+}
