@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+<!-- button to create a new project     -->
+    <a type="button" class="btn btn-primary"  href="{% url 'project:create' %}">Create a new project</a>
+</div>
+<!-- show a table with all projects -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Project name</th>
+            <th>Project description</th>
+            <th>Project actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for project in projects %}
+        <tr>
+            <td>{{ project.name }}</td>
+            <td>{{ project.description }}</td>
+            <td>
+                <a href="{% url 'project:update' project.slug %}">View</a>
+                <a href="{% url 'project:data' project.slug %}">Data</a>
+                <a href="{% url 'project:list_jobs' project.slug %}">View runs</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

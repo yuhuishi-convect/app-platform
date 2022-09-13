@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <pre>
+        {{ job.logs }}
+    </pre>
+</div>
+
+<a href="{% url 'project:list_jobs' project_slug %}"></a>
+
+{% endblock %}

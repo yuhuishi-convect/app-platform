@@ -1,0 +1,32 @@
+{% extends 'base.html'  %}
+
+
+{% block content %}
+<div>
+    <a href="{% url 'project:create_job' project.slug  %}" class="btn btn-primary my-2" >Create a new run</a>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Created at</th>
+            <th>Log path</th>
+            <th>Run actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for job in jobs %}
+        <tr>
+            <td>{{ job.created_at }}</td>
+            <td>{{ job.log_path }}</td>
+            <td>
+                <a href="{% url 'project:job_logs'  project.slug  job.pk  %}">View log</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}
